@@ -1,0 +1,31 @@
+{
+  "name": "HASS Configurator",
+  "version": "0.1.0",
+  "slug": "hass-configurator",
+  "description": "HASS Configurator - Browser based config file editor. Use the panel_iframe component and point it to http://hassio.local:3218. More information about the available options are at https://github.com/danielperna84/hass-configurator",
+  "url": "https://github.com/danielperna84/hassio-addons",
+  "startup": "after",
+  "boot": "auto",
+  "ports": {
+    "3218/tcp": 3218
+  },
+  "map": ["config", "ssl"],
+  "options": {
+    "BASEPATH": "/config",
+    "HASS_API": "http://172.17.0.1:8123/api/",
+    "HASS_API_PASSWORD": "",
+	"CREDENTIALS": "admin:secret",
+	"SSL_CERTIFICATE": "",
+    "SSL_KEY": "",
+	"ALLOWED_NETWORKS": ["172.17.0.0/16", "192.168.0.0/24", "192.168.1.0/24"]
+  },
+  "schema": {
+    "BASEPATH": "str",
+    "HASS_API": "url",
+    "HASS_API_PASSWORD": "str",
+	"CREDENTIALS": "str",
+	"SSL_CERTIFICATE": "str",
+    "SSL_KEY": "str",
+	"ALLOWED_NETWORKS": ["str"]
+  }
+}
