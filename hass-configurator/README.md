@@ -1,0 +1,51 @@
+# HASS Configurator Hass.IO add-on)
+### Configuration UI for Home Assistant
+
+Since there currently is no nice way to edit the yaml-files HASS is using through the HASS frontend, you can use this add-on to add a browser based file-editor to your Hass.IO installation.   
+More information and a standalone version can be found in the original repository at https://github.com/danielperna84/hass-configurator.
+
+### Feature list:
+
+- Web-Based editor to modify your files with syntax highlighting
+- Upload and download files
+- Stage and commit changes in Git repositories, create and switch between branches
+- Lists of available triggers, events, entities, conditions and services. Selected element gets inserted into the editor at the last cursor position.
+- Restart HASS directly with the click of a button (API-password required)
+- SSL support
+- Optional authentication and IP filtering for added security
+- Direct links to HASS documentation and icons
+- Execute shell commands
+- Modified editor settings can be saved using [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+
+#### Screenshot of the configurator embedded into HASS:
+![Screenshot](https://github.com/danielperna84/hass-configurator/blob/master/hass-poc-configurator.png)
+
+_WARNING_: This tool allows you to browse your filesystem and modify files. So be careful which files you edit, or you might break critical parts of your system.
+
+### Add-on Configuration
+
+#### BASEPATH (string)
+It is possible to place configurator.py somewhere else. Set the `BASEPATH` to something like `"/home/hass/.homeassistant"`, and no matter where you're running the configurator from, it will start serving files from there. This is needed if you plan on running the configurator with systemd.
+#### SSL_CERTIFICATE / SSL_KEY (string)
+If you're using SSL, set the paths to your SSL files here. This is similar to the SSL setup you can do in HASS.
+#### HASS_API (string)
+The configurator fetches some data from your running HASS instance. If the API isn't available through the default URL, modify this variable to fix this.
+#### HASS_API_PASSWORD (string)
+If you plan on using the restart button, you have to set your API password. Calling the restart service of HASS is prohibited without authentication.
+#### CREDENTIALS (string)
+Set credentials in the form of `"username:password"` if authentication should be required for access.
+#### ALLOWED_NETWORKS (list)
+Limit access to the configurator by adding allowed IP addresses / networks to the list, e.g `ALLOWED_NETWORKS = ["192.168.0.0/24", "172.16.47.23"]`
+
+### Embedding into HASS
+HASS has the [panel_iframe](https://home-assistant.io/components/panel_iframe/) component. With this it is possible to embed the configurator directly into HASS, allowing you to modify your configuration through the HASS frontend.  
+An example configuration would look like this:
+
+```yaml
+panel_iframe:
+  configurator:
+    title: Configurator
+    icon: mdi:wrench
+    url: http://hassio.local:3218
+```
+__IMPORTANT__: Be careful when setting up port forwarding to the configurator while embedding into HASS. If you don't restrict access by requiring authentication and / or blocking based on client IP addresses, your configuration will be exposed to the web!
