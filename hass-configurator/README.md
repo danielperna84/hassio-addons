@@ -1,7 +1,7 @@
 # HASS Configurator (Hass.IO add-on)
 ### Configuration UI for Home Assistant
 
-Since there currently is no nice way to edit the yaml-files HASS is using through the HASS frontend, you can use this add-on to add a browser based file-editor to your Hass.IO installation.   
+Since there currently is no nice way to edit the yaml-files HASS is using through the HASS frontend, you can use this add-on to add a browser based file-editor to your Hass.IO installation. By default it will listen on port `3218` of the host Hass.IO is running on.  
 More information and a standalone version for regular HASS installations can be found in the original repository at https://github.com/danielperna84/hass-configurator.
 
 ### Feature list:
@@ -25,15 +25,15 @@ _WARNING_: This tool allows you to browse your filesystem and modify files. So b
 ### Add-on Configuration
 
 #### BASEPATH (string)
-It is possible to place configurator.py somewhere else. Set the `BASEPATH` to something like `"/home/hass/.homeassistant"`, and no matter where you're running the configurator from, it will start serving files from there. This is needed if you plan on running the configurator with systemd.
+Use the `BASEPATH` parameter to specify the directory from which the configurator initially serves files. For regular Hass.IO installations the default of `/config` should be fine.
 #### SSL_CERTIFICATE / SSL_KEY (string)
 If you're using SSL, set the paths to your SSL files here. This is similar to the SSL setup you can do in HASS.
 #### HASS_API (string)
 The configurator fetches some data from your running HASS instance. If the API isn't available through the default URL, modify this variable to fix this.
 #### HASS_API_PASSWORD (string)
-If you plan on using the restart button, you have to set your API password. Calling the restart service of HASS is prohibited without authentication.
+If you plan on using API functions, you have to set your API password. Calling services of HASS is prohibited without authentication.
 #### CREDENTIALS (string)
-Set credentials in the form of `"username:password"` if authentication should be required for access.
+Set credentials in the form of `"username:password"` so access to your configuration is protected.
 #### ALLOWED_NETWORKS (list)
 Limit access to the configurator by adding allowed IP addresses / networks to the list, e.g `ALLOWED_NETWORKS = ["192.168.0.0/24", "172.16.47.23"]`
 
