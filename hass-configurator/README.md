@@ -2,7 +2,7 @@
 ### Configuration UI for Home Assistant
 
 Since there currently is no nice way to edit the yaml-files HASS is using through the HASS frontend, you can use this add-on to add a browser based file-editor to your Hass.IO installation.   
-More information and a standalone version for regular HASS installatoins can be found in the original repository at https://github.com/danielperna84/hass-configurator.
+More information and a standalone version for regular HASS installations can be found in the original repository at https://github.com/danielperna84/hass-configurator.
 
 ### Feature list:
 
