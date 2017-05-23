@@ -4,7 +4,7 @@ FROM %%BASE_IMAGE%%
 ENV LANG C.UTF-8
 
 # Setup base
-RUN apk add --no-cache python3 git
+RUN apk add --no-cache python3 tzdata git
 RUN pip3 install GitPython
 
 # Copy data
