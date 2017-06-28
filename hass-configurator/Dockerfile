@@ -4,13 +4,12 @@ FROM %%BASE_IMAGE%%
 ENV LANG C.UTF-8
 
 # Setup base
-RUN apk add --no-cache python3 tzdata git
-RUN pip3 install GitPython
+RUN apk add --no-cache python3 tzdata git \
+&& RUN pip3 install GitPython
 
 # Copy data
-COPY configurator.py /
-COPY run.sh /
-RUN chmod a+x /configurator.py
-RUN chmod a+x /run.sh
+COPY configurator.py run.sh /
+RUN chmod a+x /configurator.py \
+&& chmod a+x /run.sh
 
 CMD ["/run.sh"]
