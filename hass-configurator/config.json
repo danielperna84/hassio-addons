@@ -6,7 +6,7 @@
   "url": "https://github.com/danielperna84/hassio-addons/hass-configurator",
   "startup": "application",
   "webui": "http://[HOST]:[PORT:3218]",
-	"boot": "auto",
+  "boot": "auto",
   "ports": {
     "3218/tcp": 3218
   },
