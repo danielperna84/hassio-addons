@@ -2,10 +2,11 @@
   "name": "HASS Configurator",
   "version": "0.1.0",
   "slug": "hass-configurator",
-  "description": "HASS Configurator - Browser based config file editor. Use the panel_iframe component and point it to http://hassio.local:3218. More information about the available options are at https://github.com/danielperna84/hass-configurator",
-  "url": "https://github.com/danielperna84/hassio-addons",
-  "startup": "after",
-  "boot": "auto",
+  "description": "HASS Configurator - Browser based config file editor.",
+  "url": "https://github.com/danielperna84/hassio-addons/hass-configurator",
+  "startup": "application",
+  "webui": "http://[HOST]:[PORT:3218]",
+	"boot": "auto",
   "ports": {
     "3218/tcp": 3218
   },
