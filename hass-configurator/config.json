@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "slug": "hass-configurator",
   "description": "HASS Configurator - Browser based config file editor.",
-  "url": "https://github.com/danielperna84/hassio-addons/hass-configurator",
+  "url": "https://github.com/danielperna84/hassio-addons/tree/master/hass-configurator",
   "startup": "application",
   "webui": "http://[HOST]:[PORT:3218]",
   "boot": "auto",
