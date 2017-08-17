@@ -36,6 +36,23 @@ If you plan on using API functions, you have to set your API password. Calling s
 Set credentials in the form of `"username:password"` so access to your configuration is protected.
 #### ALLOWED_NETWORKS (list)
 Limit access to the configurator by adding allowed IP addresses / networks to the list, e.g `ALLOWED_NETWORKS = ["192.168.0.0/24", "172.16.47.23"]`
+#### BANNED_IPS (list)
+List of statically banned IP addresses, e.g. `BANNED_IPS = ["1.1.1.1", "2.2.2.2"]`
+#### IGNORE_PATTERN (list)
+Files and folders to ignore in the UI, e.g. `IGNORE_PATTERN = [".*", "*.log", "__pycache__"]`
+
+__Note regarding `ALLOWED_NETWORKS` and `BANNED_IPS`:  
+The way this is implemented works in the following order:
+
+1. (Only if `CREDENTIALS` is set) Check credentials
+  - Failure: Return error 420 (unless you try again without any authentication headers set, e.g. private tab of your browser)
+  - Success: Continue
+2. Check if client IP address is in `BANNED_IPS`
+  - Yes: Return error 420
+  - No: Continue
+3. Check if client IP address is in `ALLOWED_NETWORKS`
+  - No: Return error 420
+  - Yes: Continue and display UI of configurator
 
 ### Embedding into HASS
 HASS has the [panel_iframe](https://home-assistant.io/components/panel_iframe/) component. With this it is possible to embed the configurator directly into HASS, allowing you to modify your configuration through the HASS frontend.  

@@ -1,6 +1,6 @@
 {
   "name": "HASS Configurator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "slug": "hass-configurator",
   "description": "HASS Configurator - Browser based config file editor.",
   "url": "https://github.com/danielperna84/hassio-addons/tree/master/hass-configurator",
@@ -15,18 +15,22 @@
     "BASEPATH": "/config",
     "HASS_API": "http://172.17.0.1:8123/api/",
     "HASS_API_PASSWORD": "",
-	"CREDENTIALS": "admin:secret",
-	"SSL_CERTIFICATE": "",
+    "CREDENTIALS": "admin:secret",
+    "SSL_CERTIFICATE": "",
     "SSL_KEY": "",
-	"ALLOWED_NETWORKS": ["172.17.0.0/16", "192.168.0.0/24", "192.168.1.0/24"]
+    "ALLOWED_NETWORKS": ["172.17.0.0/16", "192.168.0.0/24", "192.168.1.0/24"],
+    "BANNED_IPS": ["8.8.8.8"],
+    "IGNORE_PATTERN": ["__pycache__"]
   },
   "schema": {
     "BASEPATH": "str",
     "HASS_API": "url",
     "HASS_API_PASSWORD": "str",
-	"CREDENTIALS": "str",
-	"SSL_CERTIFICATE": "str",
+    "CREDENTIALS": "str",
+    "SSL_CERTIFICATE": "str",
     "SSL_KEY": "str",
-	"ALLOWED_NETWORKS": ["str"]
+    "ALLOWED_NETWORKS": ["str"],
+    "BANNED_IPS": ["str"],
+    "IGNORE_PATTERN": ["str"]
   }
 }
