@@ -1,3 +1,5 @@
+## The HASS Configurator is now a part of the official repository for Hass.IO add-ons at: https://github.com/home-assistant/hassio-addons. Get the configurator from there to ensure you are receiving the latest updates.
+
 # HASS Configurator (Hass.IO add-on)
 ### Configuration UI for Home Assistant
 
