@@ -1,6 +1,3 @@
-## The HASS Configurator is a part of the official repository for Hass.IO add-ons at: https://github.com/home-assistant/hassio-addons.  
-## If however you don't want to wait for the latest version to be available in the official repository, you may add this one manually. Here updates will be available pretty much as soon as the standalone version becomes available.
-
 For information on the available settings that are configurable please have a look at the standalone repository: https://github.com/danielperna84/hass-configurator/blob/master/README.md  
 Some settings mentioned there are not useful in the add-on though.  
 All required dependencies (git and pyotp for the `SESAME_TOTP_SECRET` feature) are of course included when building this add-on.  
