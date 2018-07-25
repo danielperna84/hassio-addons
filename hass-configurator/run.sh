@@ -7,7 +7,6 @@ export HC_BASEPATH=/config
 export HC_HASS_API=http://hassio/homeassistant/api/
 export HC_HASS_API_PASSWORD=$HASSIO_TOKEN
 export HC_GIT=true
-export HC_VERIFY_HOSTNAME=false
 export HC_IGNORE_SSL=false
 
 export HC_ENFORCE_BASEPATH=$(jq --raw-output '.enforce_basepath' $CONFIG_PATH)
@@ -19,6 +18,7 @@ export HC_BANNED_IPS=$(jq --raw-output '.banned_ips | join(",")' $CONFIG_PATH)
 export HC_BANLIMIT=$(jq --raw-output '.banlimit' $CONFIG_PATH)
 export HC_IGNORE_PATTERN=$(jq --raw-output '.ignore_pattern | join(",")' $CONFIG_PATH)
 export HC_DIRSFIRST=$(jq --raw-output '.dirsfirst' $CONFIG_PATH)
+export HC_VERIFY_HOSTNAME=$(jq --raw-output '.verify_hostname // false' $CONFIG_PATH)
 
 SSL=$(jq --raw-output '.ssl // false' $CONFIG_PATH)
 if  [ "$SSL" == "true" ]; then
