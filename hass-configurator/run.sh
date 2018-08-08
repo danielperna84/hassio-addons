@@ -22,8 +22,8 @@ export HC_VERIFY_HOSTNAME=$(jq --raw-output '.verify_hostname // false' $CONFIG_
 
 SSL=$(jq --raw-output '.ssl // false' $CONFIG_PATH)
 if  [ "$SSL" == "true" ]; then
-    export HC_SSL_CERTIFICATE=$(jq --raw-output '.certfile' $CONFIG_PATH)
-    export HC_SSL_KEY=$(jq --raw-output '.keyfile' $CONFIG_PATH)
+    export HC_SSL_CERTIFICATE=ssl/$(jq --raw-output '.certfile' $CONFIG_PATH)
+    export HC_SSL_KEY=ssl/$(jq --raw-output '.keyfile' $CONFIG_PATH)
 fi
 
 LOGLEVEL=$(jq --raw-output '.loglevel // empty' $CONFIG_PATH)
