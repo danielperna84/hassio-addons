@@ -4,6 +4,7 @@
   "slug": "configurator_latest",
   "description": "Browser-based configuration file editor for Home Assistant.",
   "url": "https://github.com/danielperna84/hassio-addons",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
   "startup": "application",
   "webui": "[PROTO:ssl]://[HOST]:[PORT:3218]",
   "homeassistant_api": true,
