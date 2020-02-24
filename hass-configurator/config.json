@@ -1,6 +1,6 @@
 {
   "name": "Configurator (latest)",
-  "version": "0.3.9",
+  "version": "0.4.0",
   "slug": "configurator_latest",
   "description": "Browser-based configuration file editor for Home Assistant.",
   "url": "https://github.com/danielperna84/hassio-addons",
